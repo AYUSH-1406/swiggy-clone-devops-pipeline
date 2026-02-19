@@ -1,0 +1,79 @@
+############################
+# Node Modules
+############################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+############################
+# Build Outputs
+############################
+build/
+dist/
+.next/
+out/
+coverage/
+
+############################
+# Environment Variables
+############################
+.env
+.env.*
+!.env.example
+
+############################
+# Logs
+############################
+logs
+*.log
+
+############################
+# OS Files
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# IDE / Editor
+############################
+.vscode/
+.idea/
+*.swp
+
+############################
+# Docker
+############################
+.dockerignore
+
+############################
+# Kubernetes
+############################
+.kube/
+kubeconfig
+
+############################
+# Jenkins
+############################
+jenkins_home/
+*.jenkins
+
+############################
+# Testing
+############################
+coverage/
+jest-stare/
+
+############################
+# Temporary Files
+############################
+tmp/
+temp/
+
+############################
+# Package Lock Files (Optional)
+############################
+# Uncomment if you don't want lock files
+# package-lock.json
+# yarn.lock
