@@ -8,12 +8,20 @@ pipeline {
 
     stages {
 
-        stage('SonarQube Analysis') {
+     stage('SonarQube Analysis') {
     steps {
-        withSonarQubeEnv('sonarqube-server') {
-            sh 'sonar-scanner'
+        script {
+            def scannerHome = tool 'sonar-scanner'
+            withSonarQubeEnv('sonarqube-server') {
+                sh """
+                ${scannerHome}/bin/sonar-scanner \
+                -Dsonar.projectKey=swiggy-clone \
+                -Dsonar.sources=. 
+                """
+            }
         }
     }
+}
 }
 
         stage('Build Docker Image') {
