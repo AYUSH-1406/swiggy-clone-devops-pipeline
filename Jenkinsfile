@@ -8,17 +8,9 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                git 'https://github.com/AYUSH-1406/swiggy-clone-devops-pipeline.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
-                script {
-                    sh "docker build -t $DOCKER_IMAGE:$IMAGE_TAG ."
-                }
+                sh "docker build -t $DOCKER_IMAGE:$IMAGE_TAG ."
             }
         }
 
