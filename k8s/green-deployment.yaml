@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swiggy-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: swiggy
+      version: green
+  template:
+    metadata:
+      labels:
+        app: swiggy
+        version: green
+    spec:
+      containers:
+      - name: swiggy
+        image: ayush1406/swiggy-clone:v1
+        ports:
+        - containerPort: 80

@@ -1,26 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: swiggy-clone
+  name: swiggy-blue
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: swiggy
+      version: blue
   template:
     metadata:
       labels:
         app: swiggy
+        version: blue
     spec:
       containers:
       - name: swiggy
         image: ayush1406/swiggy-clone:v1
         ports:
         - containerPort: 80
-        resources:
-          requests:
-            cpu: "100m"
-            memory: "128Mi"
-          limits:
-            cpu: "200m"
-            memory: "256Mi"
