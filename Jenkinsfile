@@ -65,13 +65,21 @@ pipeline {
             }
         }
 
-        stage('Deploy to EKS') {
-            steps {
-                sh """
-                kubectl set image deployment/swiggy-clone \
-                swiggy=$DOCKER_IMAGE:$IMAGE_TAG
-                """
-            }
-        }
+     stage('Deploy to EKS') {
+    steps {
+        sh """
+        aws eks update-kubeconfig --region ap-south-1 --name swiggy-cluster
+
+        if kubectl get deployment swiggy-clone > /dev/null 2>&1; then
+            echo "Deployment exists. Updating image..."
+            kubectl set image deployment/swiggy-clone \
+            swiggy=$DOCKER_IMAGE:$IMAGE_TAG
+        else
+            echo "Deployment not found. Applying manifests..."
+            kubectl apply -f k8s/
+        fi
+        """
+    }
+}
     }
 }
