@@ -8,6 +8,14 @@ pipeline {
 
     stages {
 
+        stage('SonarQube Analysis') {
+    steps {
+        withSonarQubeEnv('sonarqube-server') {
+            sh 'sonar-scanner'
+        }
+    }
+}
+
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t $DOCKER_IMAGE:$IMAGE_TAG ."
