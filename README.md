@@ -204,6 +204,10 @@ Access application via ALB DNS:
 http://<ALB-DNS>
 ```
 
+<img width="1916" height="973" alt="image" src="https://github.com/user-attachments/assets/52484afe-71d4-44f5-b134-5d9bd15afab2" />
+<img width="1869" height="679" alt="image" src="https://github.com/user-attachments/assets/bc1d449d-3cf6-4ae9-b75e-f64b1288e8f1" />
+
+
 ---
 
 # 👨‍💻 Author
